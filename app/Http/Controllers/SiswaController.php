@@ -75,4 +75,48 @@ class SiswaController extends Controller
         ]);
     }
 
+    public function edit($a_id)
+    {
+        $data_siswa = lokal::find($a_id);
+        return view('siswa.edit',
+        [
+                "menu" => "siswa",
+                "data_siswa" => $data_siswa
+        ]
+        );
+    }
+
+    public function update($a_id)
+    {
+        $validasi=request()->validate([
+            'id'  => 'required',
+            'nama' => 'required',
+            'nisn' => 'required',
+            'no_telp' => 'required',
+            'jk' => 'required',
+            'alamat' => 'required',
+            'lokal_id' => 'required',
+            'foto' => ''
+        ]);
+
+        $data_siswa = siswa::find($validasi['id']);
+        $data_siswa->nama = $validasi['nama'];
+        $data_siswa->nisn = $validasi['nisn'];
+        $data_siswa->no_telp = $validasi['no_telp'];
+        $data_siswa->jk = $validasi['nama'];
+        $data_siswa->alamat = $validasi['nama'];
+        $data_siswa->lokal_id = $validasi['lokal_id'];
+        $data_siswa->foto = $validasi['foto'];
+
+        return redirect()->route('siswa.index');
+    }
+
+    public function hapus($a_id)
+    {
+        $data_siswa = siswa::find($a_id);
+        $data_siswa->delete();
+
+        return redirect()->route('siswa.index');
+    }
+
 }

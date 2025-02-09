@@ -38,21 +38,24 @@
                                         <td class='text-center'>{{$ds['no_telp']}}</td>
                                         <td class='text-center'>{{$ds->lokal->nama_kelas}}</td>
                                         <td class='text-center'>
-                                        <a href="{{route('siswa.show',$ds->id)}}" class="btn btn-primary btn-circle" title="lihat">
+                                                <a href="{{route('siswa.show',$ds->id)}}" class="btn btn-primary btn-circle" title="lihat">
                                                     <i class="fas fa-user"></i>
                                                 </a>
         
-                                            <!-- <form action="{{route('lokal.hapus',$ds['id'])}}" method="post">
+                                                <a href="{{route('siswa.edit',$ds['id'])}}" class="btn btn-info btn-circle" title="edit">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+                                                
+                                            <form action="{{route('siswa.hapus',$ds['id'])}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-circle" title="hapus" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
+                                            </form>
 
-                                                <a href="{{route('lokal.edit',$ds['id'])}}" class="btn btn-info btn-circle" title="edit">
-                                                    <i class="fas fa-pen"></i>
-                                                </a>
-                                            </form> -->
+                                                
+                                            
                                         </td>
 
                                     </tr>

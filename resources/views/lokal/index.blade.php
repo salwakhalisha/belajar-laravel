@@ -8,11 +8,9 @@
         <div class="card">
             <div class="card-header">
                 <h3>Manajemen Data Kelas</h3>
-                
                 <div class="text-right">
                 <a href="{{route('lokal.create')}}" class="btn btn-primary"><i class="fas fa-user-plus"></i> Tambah Data Kelas</a>
                 </div>
-
             </div>
             <div class="card-body">
             <div class="table-responsive">
@@ -25,13 +23,6 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <!-- <tfoot>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Group</th>
-                                        </tr>
-                                    </tfoot> -->
                                     <tbody>
                                     @foreach ($data_kelas as $dt)
                                     <tr>
@@ -51,12 +42,11 @@
                                                 </a>
                                             </form>
                                         </td>
-
                                     </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
-                            </div>
+                </div>
             </div>
         </div>
     </div>

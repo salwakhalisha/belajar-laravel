@@ -1,67 +1,50 @@
-
 @extends('templates.layouts')
 
-@section('title','Halaman Biodata')
-@section('css')
-<style>
-    h6{
-        color:green
-        
-    };
-</style>
-<link href="{{asset('dist/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-@endsection
-    @section('konten')
-<!-- DataTales Example -->
- <br>
-<div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold">Data</h6>
-                        </div>
-                        <div class="card-body">
-                            <table>
-                                <tr>
-                                    <td>Nama</td>
-                                    <td>:</td>
-                                    <td>{{$siswa->nama}}</td>
-                                </tr>
-                                <tr>
-                                    <td>NISN</td>
-                                    <td>:</td>
-                                    <td>{{$siswa->nisn}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat</td>
-                                    <td>:</td>
-                                    <td>{{$siswa->alamat}}</td>
-                                </tr>
-                                <tr>
-                                    <td>No Handphone</td>
-                                    <td>:</td>
-                                    <td>{{$siswa->no_telp}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nama Kelas</td>
-                                    <td>:</td>
-                                    <td>{{$siswa->lokal->nama_kelas}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Jenis Kelamin</td>
-                                    <td>:</td>
-                                    <td>{{$siswa->jk}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Foto</td>
-                                    <td>:</td>
-                                    <td><img src="{{asset('storage/'.$siswa->foto)}}" alt="" width="100px"></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-    @endsection
-@section('script')
-<script src="{{asset('dist/vendor/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('dist/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+@section('title','Halaman siswa')
+@section('konten')
+<div class="row mt-5">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <h3>Detail Data Siswa</h3>
 
-<script src="{{asset('dist/js/demo/datatables-demo.js')}}"></script>
+            </div>
+            <div class="card-body">
+            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Siswa</th>
+                                            <th>NISN</th>
+                                            <th>Alamat</th>
+                                            <th>No Telepon</th>
+                                            <th>Kelas</th>
+                                            <th>Jenis Kelamin</th>
+                                            <th>Foto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class='text-center'>{{$siswa->nama}}</td>
+                                        <td class='text-center'>{{$siswa->nisn}}</td>
+                                        <td class='text-center'>{{$siswa->alamat}}</td>
+                                        <td class='text-center'>{{$siswa->no_telp}}</td>
+                                        <td class='text-center'>{{$siswa->lokal->nama_kelas}}</td>
+                                        <td class='text-center'>{{$siswa->jk}}</td>
+                                        <td class='text-center'><img src="{{asset('storage/'.$siswa->foto)}}" alt="" width="100px"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                
+                                    <a href="{{ route('siswa.index') }}">
+                                        <button type="button" class="btn btn-primary">
+                                            <i class="fas fa-arrow-circle-left"></i> Kembali
+                                        </button>
+                                    </a>
+                                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
